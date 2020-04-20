@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="employeeTables" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/intelhotel?useUnicode=true&amp;characterEncoding=UTF-8"
+        userId="root"
+        password="zq468250"/>
+        <javaModelGenerator targetPackage="edu.hotelManage.entity" targetProject="./employeeManagement/src/main/java"/>
+        <sqlMapGenerator targetPackage="edu.hotelManage.repository" targetProject="./employeeManagement/src/main/java"/>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="edu.hotelManage.repository" targetProject="./employeeManagement/src/main/java"/>
+        <table tableName="employee" domainObjectName="Employee"/>
+    </context>
+</generatorConfiguration>
