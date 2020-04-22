@@ -25,4 +25,37 @@
             where room_type.id=room.type;
     </select>
 
+    <resultMap id="allEmptyRoomMap" type="allEmptyRoomMap">
+        <id column="id" property="id"></id>
+        <association property="room_type" javaType="RoomType">
+            <result column="room_type" property="roomType"/>
+            <result column="abstract" property="abstr"/>
+            <result column="price1" property="price1"/>
+            <result column="price2" property="price2"/>
+            <result column="price3" property="price3"/>
+        </association>
+    </resultMap>
+    <select id="findAllEmptyRoom" resultMap="allEmptyRoomMap">
+        select * from room
+            where room.state=1;
+    </select>
+
+    <update id="disableRoom">
+        update room set state  = 2
+            where id =#{id}
+    </update>
+
+    <update id="enableRoom">
+        update room set state =1
+            where id=#{id}
+    </update>
+    <update id="disableRoomWithDate">
+        update room set in_time=#{begin},out_time=#{end}
+        where id = #{id}
+    </update>
+    <insert id="addRoomType" parameterType="RoomType">
+        insert into room  (room_type_id,room_type,room_type_abstract,price1,price2,price3,room_nums)
+        value(#{id},#{roomType},#{abstr},#{price1,#{price2},#{price3},#{nums})
+    </insert>
+
 </mapper>
