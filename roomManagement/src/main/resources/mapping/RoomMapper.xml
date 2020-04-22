@@ -3,8 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.hotelManage.repository.RoomMapper">
-
-
     <resultMap type="Room" id="roomAllMap">
         <id column="id" property="id"/>
         <result column="type" property="type"/>
@@ -20,6 +18,7 @@
             <result column="price3" property="price3"/>
         </association>
     </resultMap>
+
 
     <select id="findAll" resultMap="roomAllMap">
         select * from room,room_type
