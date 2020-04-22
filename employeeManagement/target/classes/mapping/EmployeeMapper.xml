@@ -25,7 +25,7 @@
             values(#{name},#{gender},#{state},#{age},#{faceId},#{faceFeature},#{phoneNumber},#{salary},#{inDate});
     </insert>
 
-    <update id="update" parameterType="Employee" >
+    <update id="update" parameterType="Employee">
         update employee set name=#{name},state=#{state},age=#{age},phone_number=#{phoneNumber},salary=#{salary}
         where id=#{id};
     </update>
