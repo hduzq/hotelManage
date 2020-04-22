@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.hotelManage.repository.RoomMapper">
+
+
+    <resultMap type="Room" id="roomAllMap">
+        <id column="id" property="id"/>
+        <result column="type" property="type"/>
+        <result column="state" property="state"/>
+        <result column="in_time" property="inTime"/>
+        <result column="out_time" property="outTime"/>
+        <association property="roomType" javaType="RoomType">
+            <id column="id" property="id"/>
+            <result column="room_type" property="roomType"/>
+            <result column="abstract" property="abstr"/>
+            <result column="price1" property="price1"/>
+            <result column="price2" property="price2"/>
+            <result column="price3" property="price3"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="roomAllMap">
+        select * from room,room_type
+            where room_type.id=room.type;
+    </select>
+
+</mapper>
