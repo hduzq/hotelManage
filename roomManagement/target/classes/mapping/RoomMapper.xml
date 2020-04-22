@@ -20,10 +20,16 @@
             <result column="price3" property="price3"/>
         </association>
     </resultMap>
-
     <select id="findAll" resultMap="roomAllMap">
         select * from room,room_type
             where room_type.id=room.type;
     </select>
+
+
+    <select id="showEmptyRoom" resultMap="emptyRoomAllMap">
+        select * fron room
+            where room.
+    </select>
+
 
 </mapper>
