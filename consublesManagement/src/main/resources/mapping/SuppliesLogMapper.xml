@@ -3,5 +3,24 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.hotelManage.repository.SuppliesLogRepository">
+    <select id="findAll" resultType="SuppliesRepository">
+        select * from supplies_log
+    </select>
+    <select id="findBySid" parameterType="java.lang.Integer" resultType="SuppliesRepository">
+        select * from supplies_log where sid=#{sid};
+    </select>
 
+    <select id="findById" parameterType="java.lang.Integer" resultType="SuppliesRepository">
+        select * from supplies_log where id=#{sid};
+    </select>
+
+    <insert id="insert" parameterType="SuppliesLog">
+        INSERT INTO supplies_log (sid, quantity)
+        VALUES (#{sid}, #{quantity})
+    </insert>
+
+    <update id="update" parameterType="SuppliesLog">
+        UPDATE supplies_log  SET sid=#{sid},quantity=#{quantity}
+            WHERE id = #{id}
+    </update>
 </mapper>

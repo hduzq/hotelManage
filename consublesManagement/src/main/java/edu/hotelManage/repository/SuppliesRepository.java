@@ -9,9 +9,9 @@ import java.util.List;
 public interface SuppliesRepository {
     List<Supplies> findAll();
 
-    void insert(Supplies supplies);
+    int insert(Supplies supplies);
 
-    void update(Supplies supplies);
+    int update(Supplies supplies);
 
     Supplies findById(Integer id);
 

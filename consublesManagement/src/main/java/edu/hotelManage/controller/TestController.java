@@ -19,13 +19,13 @@ public class TestController {
     }
 
     @PostMapping( "/update" )
-    public void update(@RequestBody Supplies supplies) {
-        suppliesRepository.update(supplies);
+    public int update(@RequestBody Supplies supplies) {
+        return suppliesRepository.update(supplies);
     }
 
     @PostMapping( "/insert" )
-    public void insert(@RequestBody Supplies supplies) {
-        suppliesRepository.insert(supplies);
+    public int insert(@RequestBody Supplies supplies) {
+        return suppliesRepository.insert(supplies);
     }
 
     @GetMapping( "/findById/{id}" )
