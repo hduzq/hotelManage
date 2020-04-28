@@ -8,12 +8,11 @@ spring:
     url: jdbc:mysql://localhost:3306/intelhotel?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: zq468250
+  jpa:
+    show-sql: true
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
-mybatis:
-  mapper-locations: classpath:mapping/*.xml
-  type-aliases-package: edu.hotelManage.entity

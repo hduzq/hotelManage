@@ -41,6 +41,7 @@ public class EmployeeController {
         return employeeService.findByPhone(phoneNumber);
     }
 
+    @CrossOrigin
     @GetMapping( "/findByName/{name}" )
     public List<Employee> findByName(@PathVariable( "name" ) String name) {
         return employeeService.findByName(name);
