@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.hotelManage.repository.NoSignRepository">
+    <select id="findAll" resultType="NoSign">
+        select * from no_sign order by  pass;
+    </select>
+
+    <select id="findByEid" parameterType="java.lang.Integer" resultType="NoSign">
+        select * from no_sign where eid=#{eid} order by pass;
+    </select>
+
+    <select id="findById" parameterType="java.lang.Integer" resultType="NoSign">
+         select * from no_sign where id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="NoSign">
+        INSERT INTO no_sign (eid, reason, day)
+        VALUES (#{eid}, #{reason}, #{day})
+    </insert>
+
+    <update id="update" parameterType="NoSign">
+        UPDATE no_sign SET eid = #{eid}, reason = #{reason}, opinion = #{opinion}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        DELETE FROM no_sign WHERE id = #{id}
+    </delete>
+</mapper>
