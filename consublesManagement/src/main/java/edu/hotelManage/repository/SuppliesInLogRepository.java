@@ -26,7 +26,7 @@ public interface SuppliesInLogRepository {
     /**
      * 插入一条进货记录
      *
-     * @param suppliesInLog
+     * @param suppliesInLog 类型
      * @return 返回1表示成功插入
      */
     int insert(SuppliesInLog suppliesInLog);
