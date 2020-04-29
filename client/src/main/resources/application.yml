@@ -16,3 +16,9 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: edu.hotelManage.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
