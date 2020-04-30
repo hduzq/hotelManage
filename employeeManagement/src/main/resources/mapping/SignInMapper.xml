@@ -19,6 +19,12 @@
         select * from sign_in where id=#{id};
     </select>
 
+
+    <select id="findByTimeAndEid" resultType="SignIn">
+        select * from sign_in where time like #{time}"%" and eid =#{eid};
+    </select>
+
+
     <insert id="insert" parameterType="SignIn">
         INSERT INTO sign_in (eid) VALUES (#{eid})
     </insert>

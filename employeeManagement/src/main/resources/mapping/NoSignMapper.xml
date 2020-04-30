@@ -15,13 +15,16 @@
          select * from no_sign where id=#{id}
     </select>
 
+    <select id="findByTime" resultType="NoSign">
+        select * from no_sign where time  like #{time}"%";
+    </select>
     <insert id="insert" parameterType="NoSign">
-        INSERT INTO no_sign (eid, reason, day)
-        VALUES (#{eid}, #{reason}, #{day})
+        INSERT INTO no_sign (eid, reason,time,day)
+        VALUES (#{eid}, #{reason}, #{time},#{day})
     </insert>
 
     <update id="update" parameterType="NoSign">
-        UPDATE no_sign SET eid = #{eid}, reason = #{reason}, opinion = #{opinion}
+        UPDATE no_sign SET eid = #{eid}, reason = #{reason}, opinion = #{opinion},pass=1
         WHERE id = #{id}
     </update>
 

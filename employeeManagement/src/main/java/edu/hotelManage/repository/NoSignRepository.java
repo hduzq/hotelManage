@@ -1,9 +1,11 @@
 package edu.hotelManage.repository;
 
 import edu.hotelManage.entity.NoSign;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface NoSignRepository {
     /**
      * @return 返回所有未签到的表格
@@ -15,6 +17,14 @@ public interface NoSignRepository {
      * @return 返回eid对应的员工未签到信息
      */
     List<NoSign> findByEid(Integer eid);
+
+    /**
+     * 返回某天请假信息
+     *
+     * @param time yyyy-MM-dd
+     * @return 返回请假/未签到的信息
+     */
+    List<NoSign> findByTime(String time);
 
     /**
      * 根据假条id返回请假信息

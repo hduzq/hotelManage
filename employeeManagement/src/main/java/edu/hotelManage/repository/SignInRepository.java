@@ -1,9 +1,11 @@
 package edu.hotelManage.repository;
 
 import edu.hotelManage.entity.SignIn;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface SignInRepository {
     List<SignIn> findAll();
 
@@ -22,6 +24,15 @@ public interface SignInRepository {
      * @return 返回某一天的请假记录
      */
     List<SignIn> findByTime(String time);
+
+    /**
+     * 查询某员工 某天是否有签到信息
+     *
+     * @param time yyyy-MM-dd
+     * @param eid  员工对应id
+     * @return List<SignIn 。
+     */
+    List<SignIn> findByTimeAndEid(String time, Integer eid);
 
     /**
      * 根据签到id返回签到记录
