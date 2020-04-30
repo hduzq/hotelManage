@@ -3,14 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.hotelManage.repository.SuppliesLogRepository">
-    <select id="findAll" resultType="SuppliesRepository">
+    <select id="findAll" resultType="SuppliesLog">
         select * from supplies_log
     </select>
-    <select id="findBySid" parameterType="java.lang.Integer" resultType="SuppliesRepository">
+    <select id="findBySid" parameterType="java.lang.Integer" resultType="SuppliesLog">
         select * from supplies_log where sid=#{sid};
     </select>
 
-    <select id="findById" parameterType="java.lang.Integer" resultType="SuppliesRepository">
+    <select id="findById" parameterType="java.lang.Integer" resultType="SuppliesLog">
         select * from supplies_log where id=#{sid};
     </select>
 

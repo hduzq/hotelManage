@@ -1,17 +1,13 @@
-package edu.hotelManage.entity;
+package edu.hotelManage.VO;
 
 import lombok.Data;
 
 import java.math.BigDecimal;
 
 @Data
-public class Supplies {
-    private Integer id;
-
-    private String name;
-
-    private Integer quantity;
-
+public class UpdatePriceVO {
+    private Integer code = 0;
+    private String msg = "修改价格成功 进价price1 售价price2";
     /**
      * 进价
      */
@@ -20,6 +16,4 @@ public class Supplies {
      * 售价
      */
     private BigDecimal price2;
-
-
 }

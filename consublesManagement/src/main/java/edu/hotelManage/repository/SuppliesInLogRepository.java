@@ -4,9 +4,11 @@ package edu.hotelManage.repository;
 import edu.hotelManage.entity.Supplies;
 import edu.hotelManage.entity.SuppliesInLog;
 import edu.hotelManage.entity.SuppliesLog;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface SuppliesInLogRepository {
     /**
      * 查询所有进货记录
