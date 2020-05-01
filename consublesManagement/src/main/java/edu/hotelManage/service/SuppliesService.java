@@ -41,6 +41,15 @@ public interface SuppliesService {
     AddNumVO addNum(Integer id, Integer quantity);
 
     /**
+     * 销售某种 销售 销售 减法
+     *
+     * @param id       消耗品对应id
+     * @param quantity 出售的数量
+     * @return
+     */
+    AddNumVO subNum(Integer id, Integer quantity);
+
+    /**
      * @param id     消耗品对应id
      * @param price1 修改后的进价价格
      * @return

@@ -1,19 +1,12 @@
-package edu.hotelManage.entity;
+package edu.hotelManage.VO;
 
 import lombok.Data;
 
-
-import java.util.Date;
-
 @Data
-public class SuppliesLog {
+public class SuppliesLogVO {
     private Integer id;
-
     private Integer sid;
-
+    private String name;
     private Integer quantity;
-
     private String time;
-
-
 }

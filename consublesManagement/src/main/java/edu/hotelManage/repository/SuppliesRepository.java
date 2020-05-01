@@ -15,5 +15,5 @@ public interface SuppliesRepository {
 
     Supplies findById(Integer id);
 
-    Supplies findByName(String name);
+    List<Supplies> findByName(String name);
 }

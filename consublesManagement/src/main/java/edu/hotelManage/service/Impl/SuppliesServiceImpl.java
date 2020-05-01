@@ -46,9 +46,9 @@ public class SuppliesServiceImpl implements SuppliesService {
     @Override
     public AddSuppliesVO addSupplies(Supplies supplies) {
         String name = supplies.getName();
-        Supplies temp = suppliesRepository.findByName(name);
+        List<Supplies> temp = suppliesRepository.findByName(name);
         AddSuppliesVO addSuppliesVO = new AddSuppliesVO();
-        if (temp == null) {
+        if (temp.size() != 0) {
             suppliesRepository.insert(supplies);
             addSuppliesVO.setName(name);
         } else {
@@ -58,6 +58,13 @@ public class SuppliesServiceImpl implements SuppliesService {
         return addSuppliesVO;
     }
 
+    /**
+     * 售货功能
+     *
+     * @param id       消耗品对应id
+     * @param quantity 增加的数量
+     * @return
+     */
     @Override
     public AddNumVO addNum(Integer id, Integer quantity) {
         AddNumVO addNumVO = new AddNumVO();
@@ -77,6 +84,48 @@ public class SuppliesServiceImpl implements SuppliesService {
         } else {//如果没有对应的商品
             addNumVO.setCode(1);
             addNumVO.setMsg("请先添加该消耗品(商品)");
+            addNumVO.setId(-1);
+            addNumVO.setQuantity(-1);
+            addNumVO.setName("商品不存在");
+        }
+        return addNumVO;
+    }
+
+    /**
+     * 卖货功能
+     *
+     * @param id       消耗品对应id
+     * @param quantity 出售的数量
+     * @return
+     */
+    @Override
+    public AddNumVO subNum(Integer id, Integer quantity) {
+        AddNumVO addNumVO = new AddNumVO();
+        Supplies supplies = suppliesRepository.findById(id);
+        SuppliesLog suppliesLog = new SuppliesLog();
+        if (supplies != null) {
+            //得到现在库存数量
+            Integer stock = supplies.getQuantity();
+            if (quantity > stock) {
+                addNumVO.setCode(1);
+                addNumVO.setMsg("库存不足");
+                BeanUtils.copyProperties(supplies, addNumVO);
+                return addNumVO;
+            }
+            stock = stock - quantity;
+            supplies.setQuantity(stock);
+            suppliesRepository.update(supplies);
+
+            suppliesLog.setSid(id);
+            suppliesLog.setQuantity(quantity);
+            suppliesLogRepository.insert(suppliesLog);
+
+            addNumVO.setCode(0);
+            addNumVO.setMsg("销售成功 销售后的数量如下");
+            BeanUtils.copyProperties(supplies, addNumVO);
+        } else {
+            addNumVO.setCode(1);
+            addNumVO.setMsg("所购买的商品不存在");
             addNumVO.setId(-1);
             addNumVO.setQuantity(-1);
             addNumVO.setName("商品不存在");

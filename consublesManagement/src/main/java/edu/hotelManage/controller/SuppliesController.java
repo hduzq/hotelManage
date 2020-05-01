@@ -48,6 +48,11 @@ public class SuppliesController {
         return suppliesService.addNum(id, quantity);
     }
 
+    @GetMapping( "/subNum/{id}/{quantity}" )
+    public AddNumVO subNum(@PathVariable Integer id, @PathVariable Integer quantity) {
+        return suppliesService.subNum(id, quantity);
+    }
+
     /**
      * 修改进价
      *

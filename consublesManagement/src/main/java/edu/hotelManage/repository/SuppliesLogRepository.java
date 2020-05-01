@@ -11,6 +11,10 @@ public interface SuppliesLogRepository {
 
     List<SuppliesLog> findBySid(Integer sid);
 
+    List<SuppliesLog> findByTime(String time);
+
+    List<SuppliesLog> findByTimeAndSid(String time, Integer sid);
+
     SuppliesLog findById(Integer id);
 
     int insert(SuppliesLog suppliesLog);
