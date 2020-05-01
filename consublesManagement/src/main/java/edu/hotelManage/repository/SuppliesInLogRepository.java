@@ -25,6 +25,10 @@ public interface SuppliesInLogRepository {
      */
     List<SuppliesInLog> findBySid(Integer sid);
 
+    List<SuppliesInLog> findByTime(String time);
+
+    List<SuppliesInLog> findByTimeAndSid(String time, Integer sid);
+
     /**
      * 插入一条进货记录
      *

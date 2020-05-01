@@ -53,7 +53,9 @@ public class SuppliesLogServiceImpl implements SuppliesLogService {
 
         List<List<SuppliesLogVO>> list = new ArrayList<>();
 
-
+        /**
+         * List<>中添加的东西需要每次new 否则会丢失数据
+         */
         for (Supplies supplies :
                 suppliesList) {
             List<SuppliesLogVO> suppliesLogVOList = new ArrayList<>();

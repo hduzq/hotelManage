@@ -11,6 +11,13 @@
         select * from supplies_in_log where sid=#{sid}
     </select>
 
+    <select id="findByTime" resultType="SuppliesInLog">
+        select * from supplies_in_log where time like #{time}"%"
+    </select>
+
+    <select id="findByTimeAndSid" resultType="SuppliesInLog">
+        select * from supplies_in_log where time like #{time}"%" and sid=#{sid}
+    </select>
     <insert id="insert" parameterType="SuppliesInLog">
         INSERT INTO supplies_in_log (sid, quantity)
         VALUES (#{sid}, #{quantity})
