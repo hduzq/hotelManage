@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.hotelManage.repository.FeedBackRepository">
+
+    <select id="findAll" resultType="FeedBack">
+        select * from feedback
+    </select>
+
+    <select id="findByEid" resultType="FeedBack">
+        select * from feedback where eid=#{eid}
+    </select>
+    <select id="findByRid" resultType="FeedBack">
+        select * from feedback where rid=#{rid}
+    </select>
+
+    <select id="findByPhone" resultType="FeedBack">
+        select * from feedback where phone=#{phone}
+    </select>
+    <select id="findByPhoneAndTime" resultType="FeedBack">
+        select * from feedback where phone=#{phone} and time like #{time}"%"
+    </select>
+    <select id="findByTime" resultType="FeedBack">
+        select * from feedback where time like #{time}"%"
+    </select>
+    <update id="update" parameterType="FeedBack">
+        UPDATE feedback
+        SET comment = #{comment}, opinion =#{opinion} WHERE id =#{id}
+    </update>
+
+    <insert id="insert" parameterType="FeedBack">
+        INSERT INTO feedback (eid, rid, comment, opinion, pass, phone)
+        VALUES (#{eid}, #{rid}, #{comment}, #{opinion}, #{pass}, #{phone})
+    </insert>
+
+</mapper>

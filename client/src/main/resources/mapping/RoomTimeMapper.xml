@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.hotelManage.repository.RoomTimeRepository">
+
+    <select id="findAll" resultType="RoomTime">
+        select * from room_time
+    </select>
+
+    <select id="findAllNeed" resultType="RoomTime">
+        select * from room_time where pass=0;
+    </select>
+    <select id="findByRid" resultType="RoomTime">
+        select * from room_time where rid=#{rid};
+    </select>
+    <update id="update" parameterType="RoomTime">
+        UPDATE room_time  SET time =#{time} ,pass=#{pass} WHERE rid = #{rid}
+    </update>
+
+</mapper>
