@@ -28,5 +28,5 @@ public class Room {
     /**
      * 对应的房间类型
      */
-    private RoomType roomType;
+    private String phone;
 }

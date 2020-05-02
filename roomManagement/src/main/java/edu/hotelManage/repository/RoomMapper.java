@@ -17,5 +17,4 @@ public interface RoomMapper {
     boolean enableRoom(Long id);
     boolean disableRoomWithDate(Date start, Date end);
     boolean addRoomType(RoomType roomType);
-
 }

@@ -29,6 +29,8 @@ public interface FeedBackService {
      */
     List<FeedBack> findAll();
 
+    FeedBack findById(Integer id);
+
     List<FeedBack> findByEid(Integer eid);
 
     List<FeedBack> findByRid(Integer rid);
@@ -37,7 +39,7 @@ public interface FeedBackService {
 
     List<FeedBack> findByTime(String time);
 
-    FeedBack findByPhoneAndTime(String phone, String time);
+    List<FeedBack> findByPhoneAndTime(String phone, String time);
 
     /**
      * 管理者写出评论

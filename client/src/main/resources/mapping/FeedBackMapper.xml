@@ -7,7 +7,9 @@
     <select id="findAll" resultType="FeedBack">
         select * from feedback
     </select>
-
+    <select id="findById" resultType="FeedBack">
+        select * from feedback where id=#{id}
+    </select>
     <select id="findByEid" resultType="FeedBack">
         select * from feedback where eid=#{eid}
     </select>
@@ -26,7 +28,7 @@
     </select>
     <update id="update" parameterType="FeedBack">
         UPDATE feedback
-        SET comment = #{comment}, opinion =#{opinion} WHERE id =#{id}
+        SET comment = #{comment}, opinion =#{opinion} ,pass=#{pass} WHERE id =#{id}
     </update>
 
     <insert id="insert" parameterType="FeedBack">

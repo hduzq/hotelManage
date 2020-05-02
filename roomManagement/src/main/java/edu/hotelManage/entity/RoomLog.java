@@ -27,7 +27,7 @@ public class RoomLog {
     /**
      * 该条日志客户的联系方式
      */
-    private String cnumber;
+    private String phone;
     /**
      * 房间带来的收益
      */

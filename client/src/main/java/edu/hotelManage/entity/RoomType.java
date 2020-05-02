@@ -2,9 +2,6 @@ package edu.hotelManage.entity;
 
 import lombok.Data;
 
-/**
- * 从这里开始完善
- */
 @Data
 public class RoomType {
     /**
@@ -14,6 +11,14 @@ public class RoomType {
     /**
      * 房间类型的文字描述
      */
+
+    private Integer nums;
+    /**
+     * 该类型房间总数
+     * Add By iYmz
+     */
+
+
     private String roomType;
     /**
      * 房间类型简介 abstract 缩写abstr
