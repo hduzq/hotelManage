@@ -9,7 +9,7 @@
     </select>
     <!--    Room findById();-->
     <select id="findById" resultType="Room">
-        select * from room where id=#id
+        select * from room where id=#{id}
     </select>
     <!--    List<Room> findByState(short state);-->
     <select id="findByState" resultType="Room">

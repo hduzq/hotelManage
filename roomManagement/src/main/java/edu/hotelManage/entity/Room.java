@@ -16,7 +16,7 @@ public class Room {
      * 房间当前状态 state 1表示空房
      * 2表示当前有人入住
      */
-    private short state;
+    private Integer state;
     /**
      * 入住该房间入住时间
      */

@@ -15,7 +15,7 @@
     <update id="update" parameterType="RoomType">
         UPDATE room_type SET
         nums = #{nums},
-        abstract = #{abstract},
+        abstr = #{abstr},
         price1 = #{price1},
         price2 = #{price2},
         price3 = #{price3},
@@ -24,7 +24,7 @@
     </update>
     <!--    int insert(RoomType roomType);-->
     <insert id="insert" parameterType="RoomType">
-        INSERT INTO room_type ( nums, abstract, price1, price2, price3, room_type)
-        VALUES ( #{nums}, #{abstract}, #{price1}, #{price2}, #{price3}, #{roomType})
+        INSERT INTO room_type ( nums, abstr, price1, price2, price3, room_type)
+        VALUES ( #{nums}, #{abstr}, #{price1}, #{price2}, #{price3}, #{roomType})
     </insert>
 </mapper>

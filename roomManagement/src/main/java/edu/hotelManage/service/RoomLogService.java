@@ -12,9 +12,9 @@ public interface RoomLogService {
      * 1.每天生成一份日志，包括各个时间房间入住情况以及对应的旅客信息情况。
      * 2. 按照房间，每个房间每天生成一份日志，包括该房间近期的入住情况。
      */
-    void findByInTime(String inTime);
+    List<RoomLog> findByInTime(String inTime);
 
-    void findByOutTime(String outTime);
+    List<RoomLog> findByOutTime(String outTime);
 
-    void findByRid(Integer rid);
+    List<RoomLog> findByRid(Integer rid);
 }

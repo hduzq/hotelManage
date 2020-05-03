@@ -8,13 +8,13 @@ import java.util.List;
 public interface RoomMapper {
     List<Room> findAll();
 
-    Room findById();
+    Room findById(Integer id);
 
-    List<Room> findByState(short state);
+    List<Room> findByState(Integer state);
 
     List<Room> findByType(Integer type);
 
-    List<Room> findByStateAndType(short state, Integer type);
+    List<Room> findByStateAndType(Integer state, Integer type);
 
     /**
      * 通用更新
