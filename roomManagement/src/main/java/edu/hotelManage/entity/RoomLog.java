@@ -2,6 +2,8 @@ package edu.hotelManage.entity;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 public class RoomLog {
     /**
@@ -31,7 +33,7 @@ public class RoomLog {
     /**
      * 房间带来的收益
      */
-    private Integer income;
+    private BigDecimal income;
     /**
      * 这条入住信息由哪一个员工负责
      * eg: rid 1  eid 5

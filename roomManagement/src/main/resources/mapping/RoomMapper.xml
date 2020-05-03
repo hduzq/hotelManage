@@ -3,59 +3,35 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.hotelManage.repository.RoomMapper">
-    <resultMap type="Room" id="roomAllMap">
-        <id column="id" property="id"/>
-        <result column="type" property="type"/>
-        <result column="state" property="state"/>
-        <result column="in_time" property="inTime"/>
-        <result column="out_time" property="outTime"/>
-        <association property="roomType" javaType="RoomType">
-            <id column="id" property="id"/>
-            <result column="room_type" property="roomType"/>
-            <result column="abstract" property="abstr"/>
-            <result column="price1" property="price1"/>
-            <result column="price2" property="price2"/>
-            <result column="price3" property="price3"/>
-        </association>
-    </resultMap>
-
-
-    <select id="findAll" resultMap="roomAllMap">
-        select * from room,room_type
-            where room_type.id=room.type;
-    </select>
-
-    <resultMap id="allEmptyRoomMap" type="allEmptyRoomMap">
-        <id column="id" property="id"></id>
-        <association property="room_type" javaType="RoomType">
-            <result column="room_type" property="roomType"/>
-            <result column="abstract" property="abstr"/>
-            <result column="price1" property="price1"/>
-            <result column="price2" property="price2"/>
-            <result column="price3" property="price3"/>
-        </association>
-    </resultMap>
-    <select id="findAllEmptyRoom" resultMap="allEmptyRoomMap">
+    <!--    List<Room> findAll();-->
+    <select id="findAll" resultType="Room">
         select * from room
-            where room.state=1;
+    </select>
+    <!--    Room findById();-->
+    <select id="findById" resultType="Room">
+        select * from room where id=#id
+    </select>
+    <!--    List<Room> findByState(short state);-->
+    <select id="findByState" resultType="Room">
+        select * from room where state=#{state}
+    </select>
+    <!--    List<Room> findByType(Integer type);-->
+    <select id="findByType" resultType="Room">
+        select * from room where type=#{type}
+    </select>
+    <!--    List<Room> findByStateAndType(short state,Integer type);-->
+    <select id="findByStateAndType" resultType="Room">
+        select * from room where state=#{state} and type=#{type}
     </select>
 
-    <update id="disableRoom">
-        update room set state  = 2
-            where id =#{id}
+    <update id="update" parameterType="Room">
+        UPDATE room SET state =#{state},  in_time = #{inTime},  out_time = #{outTime},  phone = #{phone}
+        WHERE id = #{id}
     </update>
 
-    <update id="enableRoom">
-        update room set state =1
-            where id=#{id}
-    </update>
-    <update id="disableRoomWithDate">
-        update room set in_time=#{begin},out_time=#{end}
-        where id = #{id}
-    </update>
-    <insert id="addRoomType" parameterType="RoomType">
-        insert into room  (room_type_id,room_type,room_type_abstract,price1,price2,price3,room_nums)
-        value(#{id},#{roomType},#{abstr},#{price1,#{price2},#{price3},#{nums})
-    </insert>
 
+    <insert id="insert" parameterType="Room">
+            INSERT INTO room (type)
+            VALUES (#{type})
+        </insert>
 </mapper>

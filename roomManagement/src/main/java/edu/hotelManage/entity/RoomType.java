@@ -2,6 +2,8 @@ package edu.hotelManage.entity;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 public class RoomType {
     /**
@@ -27,13 +29,13 @@ public class RoomType {
     /**
      * 该类房间钟点房价格
      */
-    private Integer price1;
+    private BigDecimal price1;
     /**
      * 该类房间一天的价格
      */
-    private Integer price2;
+    private BigDecimal price2;
     /**
      * 该类房间的押金价格
      */
-    private Integer price3;
+    private BigDecimal price3;
 }

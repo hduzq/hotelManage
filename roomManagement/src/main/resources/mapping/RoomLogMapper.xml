@@ -3,5 +3,72 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.hotelManage.repository.RoomLogRepository">
-
+    <!--    List<RoomLog> findAll();-->
+    <select id="findAll" resultType="RoomLog">
+        select * from room_log
+    </select>
+    <!--    RoomLog findById(Integer id);-->
+    <select id="findById" resultType="RoomLog">
+        select * from room_log where id=#{id}
+    </select>
+    <!--    /**-->
+    <!--    * 根据房间id查询房间日志-->
+    <!--    * @param rid 房间对应的rid 那个房间-->
+    <!--    * @return-->
+    <!--    */-->
+    <!--    List<RoomLog> findByRid(Integer rid);-->
+    <select id="findByRid" resultType="RoomLog">
+        select * from room_log where rid=#{rid}
+    </select>
+    <!--    List<RoomLog> findByInTime(String inTime);-->
+    <select id="findByInTime" resultType="RoomLog">
+        select * from room_log where in_time like #{inTime}"%"
+    </select>
+    <!--    List<RoomLog> findByOutTime(String outTime);-->
+    <select id="findByOutTime" resultType="RoomLog">
+        select * from room_log where out_time like #{outTime}"%"
+    </select>
+    <!--    /**-->
+    <!--    * 根据客户名称查询房间日志-->
+    <!--    * @param cname 客户名称-->
+    <!--    * @return-->
+    <!--    */-->
+    <!--    List<RoomLog> findByCname(String cname);-->
+    <select id="findByCname" resultType="RoomLog">
+        select * from room_log where cname like "%"#{cname}"%"
+    </select>
+    <!--    /**-->
+    <!--    * 根据客户手机号查询客房日志-->
+    <!--    * @param phone-->
+    <!--    * @return-->
+    <!--    */-->
+    <!--    List<RoomLog> findByPhone(String phone);-->
+    <select id="findByPhone" resultType="RoomLog">
+        select * from room_log where phone like #{phone}"%"
+    </select>
+    <!--    /**-->
+    <!--    * 根据员工eid查询 房间日志-->
+    <!--    * @param eid-->
+    <!--    * @return-->
+    <!--    */-->
+    <!--    List<RoomLog> findByEid(Integer eid);-->
+    <select id="findByEid" resultType="RoomLog">
+        select * from room_log where eid=#{eid}
+    </select>
+    <!--    int insert(RoomLog roomLog);-->
+    <insert id="insert" parameterType="RoomLog">
+        INSERT INTO room_log (rid, in_time, out_time, cname, phone, income, eid)
+        VALUES (#{rid}, #{inTime}, #{outTime}, #{cname}, #{phone}, #{income}, #{eid})
+    </insert>
+    <!--    int update(RoomLog roomLog);-->
+    <update id="update" parameterType="RoomLog">
+        UPDATE room_log SET  rid = #{rid},
+        in_time = #{inTime},
+        out_time = #{outTime},
+        cname = #{cname},
+        phone = #{phone},
+        income = #{income},
+        eid = #{eid}
+        WHERE id = #{id}
+    </update>
 </mapper>

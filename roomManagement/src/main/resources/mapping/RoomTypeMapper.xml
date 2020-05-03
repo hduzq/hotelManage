@@ -3,5 +3,28 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.hotelManage.repository.RoomTypeRepository">
-
+    <!--    List<RoomType> findAll();-->
+    <select id="findAll" resultType="RoomType">
+        select * from room_type
+    </select>
+    <!--    RoomType findById(Integer id);-->
+    <select id="findById" resultType="RoomType">
+        select * from room_type where id=#{id}
+    </select>
+    <!--    int update(RoomType roomType);-->
+    <update id="update" parameterType="RoomType">
+        UPDATE room_type SET
+        nums = #{nums},
+        abstract = #{abstract},
+        price1 = #{price1},
+        price2 = #{price2},
+        price3 = #{price3},
+        room_type = #{roomType}
+         WHERE id = #{id}
+    </update>
+    <!--    int insert(RoomType roomType);-->
+    <insert id="insert" parameterType="RoomType">
+        INSERT INTO room_type ( nums, abstract, price1, price2, price3, room_type)
+        VALUES ( #{nums}, #{abstract}, #{price1}, #{price2}, #{price3}, #{roomType})
+    </insert>
 </mapper>

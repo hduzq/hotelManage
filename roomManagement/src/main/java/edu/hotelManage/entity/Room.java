@@ -26,7 +26,7 @@ public class Room {
      */
     private String outTime;
     /**
-     * 对应的房间类型
+     * 房间入住旅客的手机号
      */
     private String phone;
 }

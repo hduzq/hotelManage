@@ -1,20 +1,34 @@
 package edu.hotelManage.repository;
 
 import edu.hotelManage.entity.Room;
-import edu.hotelManage.entity.RoomType;
 import org.springframework.stereotype.Repository;
-
-
-import javax.xml.crypto.Data;
-import java.util.Date;
 import java.util.List;
 
 @Repository
 public interface RoomMapper {
     List<Room> findAll();
-    List<Room> findAllEmptyRoom();
-    boolean disableRoom(Long id);
-    boolean enableRoom(Long id);
-    boolean disableRoomWithDate(Date start, Date end);
-    boolean addRoomType(RoomType roomType);
+
+    Room findById();
+
+    List<Room> findByState(short state);
+
+    List<Room> findByType(Integer type);
+
+    List<Room> findByStateAndType(short state, Integer type);
+
+    /**
+     * 通用更新
+     *
+     * @param room 房间类
+     * @return 返回1表示更新成功
+     */
+    int update(Room room);
+
+    /**
+     * 插入房间增加房间信息 (几乎不用)
+     *
+     * @param room
+     * @return
+     */
+    int insert(Room room);
 }
