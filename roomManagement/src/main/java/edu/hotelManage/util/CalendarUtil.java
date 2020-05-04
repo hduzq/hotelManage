@@ -28,7 +28,9 @@ public class CalendarUtil {
             calendar2.setTime(date2);
             /**
              * 计算时间差
+             * 在计算时把入店时间默认变为0点入店防止出现23小时bug
              */
+            calendar1.set(Calendar.HOUR_OF_DAY, 0);
             Long dayDiff = calendar2.getTimeInMillis() - calendar1.getTimeInMillis();
             ans = dayDiff / (1000 * 3600 * 24);
         } catch (ParseException e) {
@@ -39,7 +41,7 @@ public class CalendarUtil {
     }
 
     public static void main(String[] args) {
-        String inTime = "2020-05-03 11:32:33";
+        String inTime = "2020-05-02 11:32:33";
         String outTime = CalendarUtil.createNow();
         System.out.println(CalendarUtil.compareTwoDay(inTime, outTime));
     }

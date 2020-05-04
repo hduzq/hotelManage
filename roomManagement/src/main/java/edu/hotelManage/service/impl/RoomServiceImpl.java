@@ -72,6 +72,7 @@ public class RoomServiceImpl implements RoomService {
         if (room.getState() == 1) {//如果房间有人说明可以退房
             room.setState(0);
             room.setOutTime(outTime);
+            String phone = room.getPhone();//将用户手机号取出
             room.setPhone(null);
             roomMapper.update(room);
             /**
@@ -85,7 +86,7 @@ public class RoomServiceImpl implements RoomService {
 
             RoomLog roomLog = new RoomLog();
             roomLog.setRid(rid);
-            roomLog.setPhone(room.getPhone());
+            roomLog.setPhone(phone);
             roomLog.setInTime(inTime);
             roomLog.setOutTime(outTime);
             roomLog.setEid(eid);
@@ -116,7 +117,9 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public InsertVO insertNewRoom(Room room) {
         InsertVO insertVO = new InsertVO();
-        if (roomMapper.insert(room) != 1) {
+        Integer type = room.getType();
+
+        if (roomMapper.insert(room) != 1 || roomTypeRepository.findById(type) == null) {
             insertVO.setCode(1);
             insertVO.setMsg("操作失败");
         } else {
