@@ -14,7 +14,7 @@ public class SuppliesInLog {
 
     private Integer quantity;
 
-    private Date time;
+    private String time;
 
 
 }

@@ -48,7 +48,7 @@ public class SuppliesServiceImpl implements SuppliesService {
         String name = supplies.getName();
         List<Supplies> temp = suppliesRepository.findByName(name);
         AddSuppliesVO addSuppliesVO = new AddSuppliesVO();
-        if (temp.size() != 0) {
+        if (temp.size() == 0) {
             suppliesRepository.insert(supplies);
             addSuppliesVO.setName(name);
         } else {
@@ -59,7 +59,7 @@ public class SuppliesServiceImpl implements SuppliesService {
     }
 
     /**
-     * 售货功能
+     * 上货功能
      *
      * @param id       消耗品对应id
      * @param quantity 增加的数量

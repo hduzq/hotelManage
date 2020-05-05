@@ -74,6 +74,6 @@ public class SuppliesController {
      */
     @GetMapping( "/update2/{id}/{price2}" )
     public UpdatePriceVO updatePriceVO2(@PathVariable Integer id, @PathVariable BigDecimal price2) {
-        return suppliesService.updatePrice1(id, price2);
+        return suppliesService.updatePrice2(id, price2);
     }
 }
