@@ -5,9 +5,9 @@ spring:
     name: edu.hotelManage.ConsumablesManagement
   datasource:
     name: intelhotel
-    url: jdbc:mysql://rm-bp161s6e416ikp471co.mysql.rds.aliyuncs.com:3306/hduzq
-    username: zq
-    password: Zqzq1234
+    url: jdbc:mysql://localhost:3306/intelhotel?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: zq468250
     driver-class-name: com.mysql.cj.jdbc.Driver
 eureka:
   client:
