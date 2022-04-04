@@ -6,8 +6,8 @@ spring:
   datasource:
     name: intelhotel
     url: jdbc:mysql://rm-bp161s6e416ikp471co.mysql.rds.aliyuncs.com:3306/hduzq
-    username: zq
-    password: Zqzq1234
+    username: 
+    password: 
     driver-class-name: com.mysql.cj.jdbc.Driver
 eureka:
   client:
