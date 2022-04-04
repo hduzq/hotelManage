@@ -7,12 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="client" />
+        <module name="roomManagement" />
+        <module name="employeeManagement" />
         <module name="cashManagement" />
         <module name="eurekaserve" />
         <module name="consublesManagement" />
-        <module name="roomManagement" />
-        <module name="employeeManagement" />
-        <module name="client" />
       </profile>
     </annotationProcessing>
   </component>
