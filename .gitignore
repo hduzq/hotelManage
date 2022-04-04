@@ -1,1 +1,7 @@
 *.yml
+/roomManagement/target/
+/eurekaserve/target/
+/employeeManagement/target/
+/consublesManagement/target/
+/client/target/
+/cashManagement/target/
